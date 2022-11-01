@@ -1,0 +1,789 @@
+/*
+-container ==> 80% and margin auto
+-common styling
+-opacity hover for buttons 
+-section header 
+-section padding
+-hover
+
+{
+
+effect 1 ==>left to right 
+effect 2 ==>top to bottom
+
+}
+
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+
+/* left-to-right effect  */
+.ltr-effect {
+    position: relative;
+}
+
+.ltr-effect::after {
+    position: absolute;
+    content: "";
+    /* width: 100%;
+    height: 100%; */
+    background-color: #1C1D21;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    transition: width 0.2s;
+    z-index: -1;
+}
+
+.ltr-effect:hover::after {
+    height: 100%;
+}
+
+/* top-to-bottom-effect */
+
+.tb-effect {
+    position: relative;
+}
+
+.tb-effect::after {
+    position: absolute;
+    content: "";
+    /* width: 100%;
+    height: 100%; */
+    background-color: #1C1D21;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    transition: height 0.2s;
+    z-index: -1;
+}
+
+.tb-effect:hover::after {
+    height: 100%;
+}
+
+/********************************************************* Header seciton starts  ******************************************************************/
+
+.bg-carousel {
+    background-image:
+        linear-gradient(to bottom, rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.7)),
+        url('/assets/images/background/background1.webp');
+
+    /* background-image: url(/assets/images/background/background1.webp); */
+    /* width: 100%; */
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    width: 82%;
+    margin: auto;
+}
+
+/* NavBar Starts  */
+.nav {
+    position: sticky;
+}
+
+.header .container {
+    display: flex;
+}
+
+.nav ul {
+    display: flex;
+}
+
+.nav .nav-items .nav-item,
+.drop-nav-item {
+    /* top right bottom left */
+    margin: 20px 10px 20px 20px;
+}
+
+
+/* NAVBAR HOVERING */
+
+/* Grouping */
+
+.nav .nav-items .nav-item a.active::after,
+.nav .nav-items .nav-item a::after,
+.drop-nav-item .drop-nav-link::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background-color: #6195ff;
+    margin-top: 2px;
+    transition: width 0.2s;
+}
+
+.nav .nav-items .nav-item a.active::after {
+    width: 100%;
+
+}
+
+.nav .nav-items .nav-item a:hover,
+.drop-nav-link:hover {
+    color: #b4bdb6;
+}
+
+
+.nav .nav-items .nav-item a::after,
+.drop-nav-link::after {
+    width: 0;
+}
+
+
+/* .nav li a.active::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #6195ff;
+    transition: width 0.3s;
+}
+
+.nav li a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: #6195ff;
+    transition: width 0.3s;
+} */
+
+.nav .nav-items .nav-item a:hover::after,
+.drop-nav-link:hover::after {
+    width: 100%;
+}
+
+.logo {
+    width: 45%;
+    margin-top: 5px;
+}
+
+.logo img {
+    width: 100px;
+}
+
+/* dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    width: 200px;
+    text-align: center;
+    position: absolute;
+    background-color: #6195ff;
+    left: -78px;
+    margin-top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s, visibilty;
+}
+
+.dropdown-menu li {
+    /* margin-right: 100px; */
+    padding: 8px 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-menu li a {
+    display: block;
+
+    /* padding: 6px 10px; */
+}
+
+.content {
+    width: 70%;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.content .heading h2 {
+    letter-spacing: 2px;
+    padding: 30px;
+    font-size: 3.5rem;
+}
+
+.content .heading p {
+    padding: 5px;
+    line-height: 30px;
+}
+
+.content .buttons {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+}
+
+/*  */
+.content .buttons button {
+    margin-left: 15px;
+    border-radius: 3px;
+    border-style: none;
+    /* width: 20%; */
+    padding: 18px 45px 18px 45px;
+    font-size: 16px;
+}
+
+.btn-learn {
+    color: #fff;
+    background-color: #6195ff;
+}
+
+/********************************************************* Header seciton ended  ******************************************************************/
+
+/********************************************************* About seciton starts  ******************************************************************/
+/* .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+} */
+
+.about-us .header h2,
+.featured-work h2,
+.services .header h2,
+.services2-title .header h2,
+.pricing .header h2 {
+    margin-top: 110px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 36px;
+    font-family: Montserrat, sans-serif;
+    line-height: 40px;
+    color: #10161a;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.about-us .header .Border,
+.featured-work .Border,
+.services .header .Border,
+.services2-title .header .Border,
+.pricing .header .Border {
+    margin: auto;
+    width: 45px;
+    height: 4px;
+    background-color: #6195ff;
+    margin-bottom: 50px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 100px;
+    /* margin-left: 20px; */
+    /* margin-right: 20px; */
+}
+
+.features .feature-card {
+    padding: 40px 35px 40px 35px;
+    /* background-color: aliceblue; */
+    border: 1px solid #eee;
+    margin-left: 30px;
+
+}
+
+.features .feature-card .icon {
+    color: #6195ff;
+    padding: 5px 30px 5px 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+.features .feature-card .card-details {
+    margin-top: 10px;
+}
+
+.features .feature-card .card-details h3 {
+    font-size: 21px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #10161a;
+    /* transition: color 0.5s; */
+}
+
+.features .feature-card .card-details p {
+    margin: 0 0 15px;
+    color: rgb(100, 100, 100);
+}
+
+.features .feature-card .card-details .card-link {
+    border-style: none;
+    color: #6195ff;
+    font-size: 16px;
+}
+
+.feature-card:hover .card-details h3 {
+    color: #fff;
+}
+
+/********************************************************* About seciton ended ************************************************************************/
+
+/********************************************************* Featured Works Starts **********************************************************************/
+
+.featured-work {
+    background-color: #fafafa;
+    margin-bottom: 90px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.featured-work .header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.work-container {
+    width: 88%;
+    margin: auto;
+}
+
+.work-cards {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 90px;
+}
+
+.work-cards .work-card {
+    width: calc(100% / 3);
+    /* width: 33.33333333%; */
+    padding: 16px;
+    position: relative;
+}
+
+/* images will take a 100% width of it's parent */
+.work-cards .work-card img {
+    width: 100%;
+}
+
+
+/*  OVERLAY HIVERING SECTION FOR CARDS  */
+.overlay-hidden {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: #1c1d21;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    /* visibility: hidden; */
+    transition: opacity, visibilty 0.3s;
+    /* right: 0;
+    bottom: 0; */
+    /* opacity: 0; */
+}
+
+.overlay-hidden ul {
+    display: flex;
+    justify-content: center;
+}
+
+.overlay-hidden .category {
+    color: #6195ff;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 17px;
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    transition: top 0.1s, opacity 0.1s;
+    transition-delay: 0.1;
+}
+
+
+.overlay-hidden h3 {
+    color: #fff;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 23px;
+    font-family: Montserrat, sans-serif;
+    /* margin-bottom: 20px; */
+    opacity: 0;
+    position: relative;
+    top: 10px;
+    transition: top 0.2s, opacity 0.2s;
+    transition-delay: 0.2s;
+}
+
+
+.overlay-hidden .work-icons i {
+    color: #fff;
+    margin: 3px;
+    background-color: #6195ff;
+    width: 55px;
+    height: 55px;
+    line-height: 50px;
+    position: relative;
+    opacity: 0;
+    top: 10px;
+    transition: top 0.2s, opacity 0.2s;
+    transition-delay: 0.2s;
+
+}
+
+.work-card:hover .overlay-hidden {
+    opacity: 1;
+    /* visibility: visible; */
+}
+
+.work-card:hover .overlay-hidden h3,
+.work-card:hover .overlay-hidden .category,
+.work-card:hover .overlay-hidden .work-icons i {
+    opacity: 1;
+    top: 0;
+}
+
+
+/********************************************************* Featured Works Ends ************************************************************************/
+
+/********************************************************* SERVICES SECTION STARTS ************************************************************************/
+.services-cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+    padding: 10px;
+}
+
+.services-cards .services-card {
+    /* width: calc(100% / 3); */
+    flex: 30.3333333%;
+    padding: 44px 28px 50px 25px;
+    /* 50px 41px 50px 32px */
+    /* background-color: aliceblue; */
+    border: 1px solid #eee;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.services-cards .services-card .card-info {
+    display: flex;
+    /* padding: 5px 30px 5px 30px; */
+}
+
+.services-cards .services-card .card-info i {
+    color: #6195ff;
+    margin-right: 10px;
+}
+
+.services-cards .services-card .card-details {
+    background-color: #10161a;
+}
+
+.services-cards .services-card .card-info h3 {
+    font-size: 21px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #10161a;
+    /* transition: color 0.5s; */
+}
+
+.services-cards .services-card p {
+    margin-top: 10px;
+    color: #868f9b;
+    margin-left: 38px;
+    line-height: 27px;
+}
+
+.services-card:hover .card-info h3 {
+    color: #fff;
+}
+
+
+/********************************************************* SERVICES SECTION ENDS ************************************************************************/
+
+/********************************************************* SERVICES-2 SECTION SATRTS ************************************************************************/
+.services-2 {
+    background-color: #fafafa;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 60px;
+}
+
+.services-2 .services-content {
+    display: flex;
+    /* padding-top: 40px; */
+    margin-top: 100px;
+    margin-bottom: 50px;
+
+}
+
+.services-2 .services-content .services-header,
+.services-2 .services-content .services-carousel {
+    width: 50%;
+}
+
+.services2-title .header h2 {
+    margin-top: 0;
+    line-height: 20px;
+    text-align: left;
+}
+
+.services2-title .header .Border {
+    margin-left: 0;
+    width: 45px;
+    height: 4px;
+    background-color: #6195ff;
+    margin-bottom: 50px;
+
+}
+
+.services-2 .services-content .services-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.services-outlines>p {
+    color: #868f9b;
+    margin-bottom: 20px;
+    line-height: 25px;
+}
+
+.services-outlines .feature p {
+    margin-top: 2px;
+    color: #868f9b;
+
+}
+
+
+.feature {
+    display: flex;
+    margin-top: 10px;
+}
+
+.services-outlines .feature i {
+    color: #6195ff;
+    margin-right: 6px;
+    margin-bottom: 10px;
+    padding: 3px 3px 3px 3px;
+    border: 1px solid #6195ff;
+    border-radius: 100%;
+}
+
+/********************************************************* SERVICES-2 SECTION ENDS ************************************************************************/
+
+
+/********************************************************* NUMBERS SECTION STARTS ************************************************************************/
+.numbers {
+    margin-bottom: 80px;
+}
+
+.numbers-bg {
+    background-image:
+        linear-gradient(to bottom, rgba(58, 58, 58, 0.6), rgba(58, 58, 58, 0.7)),
+        url('/assets/images/background/background2.webp');
+    /* background: #1C1D21;
+    opacity: 0.5;
+
+    background-image: url(/assets/images/background/background2.webp); */
+    /* width: 100%; */
+    height: 43vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin-bottom: 50px;
+}
+
+.numbers-bg .container {
+    width: 75%;
+    margin: auto;
+}
+
+.number-container {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.number-container .number {
+    margin-top: 65px;
+}
+
+.number h3,
+.number span {
+    color: #fff;
+    /* margin: 10px; */
+}
+
+.number h3 {
+    font-size: 36px;
+    /* margin-top: 10px; */
+    margin-bottom: 10px;
+}
+
+.number i {
+    color: #5286f0;
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+/********************************************************* NUMBERS SECTION ENDS ************************************************************************/
+
+/********************************************************* PRICES SECTION STARTS ************************************************************************/
+.pricing-container {
+    width: 85%;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+.prices {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.prices .price-card {
+    /* flex: 33%; */
+    width: 32.3333333%;
+    padding: 30px;
+    border: 1px solid #EEE;
+    margin-right: 30px;
+    /* width: 33.33333%; */
+}
+
+.price-card .price-head {
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.price-card .price-head .price-title {
+    text-transform: uppercase;
+    color: #868f9b;
+    font-size: 17px;
+}
+
+.price-card .price-head .price-outline {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    text-align: center;
+    margin: auto;
+    border-radius: 50%;
+    border: 2px solid #6195FF;
+    margin-top: 20px;
+}
+
+.price-card .price-head .price-outline h3 {
+    margin-top: 28px;
+    font-size: 2.6rem;
+}
+
+.price-card .price-head .price-outline .duration {
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.prices .price-card .price-content li {
+    padding: 8px;
+    color: #868f9b;
+}
+
+.prices .price-card .price-btn {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.prices .price-card .price-btn button {
+    border-style: none;
+    font-size: 17px;
+    color: #6195FF;
+    border: 2px solid #6195FF;
+    padding: 12px 35px;
+    background: transparent;
+    border-radius: 3px;
+}
+
+.prices .price-card .price-btn button:hover {
+    color: #5286f0;
+    cursor: pointer;
+}
+
+.price-card:hover .price-title {
+    color: #5286f0;
+}
+
+.price-card:hover .price-head {
+    color: #fff;
+}
+
+/********************************************************* PRICES SECTION ENDS ************************************************************************/
+
+/********************************************************* TESTIMONIALS SECTION STARTS ************************************************************************/
+
+.numbers {
+    margin-bottom: 80px;
+}
+
+.testimonials-bg {
+    background-image:
+        linear-gradient(to bottom, rgba(58, 58, 58, 0.6), rgba(58, 58, 58, 0.7)),
+        url('/assets/images/background/background3.webp');
+    /* background: #1C1D21;
+    opacity: 0.5;
+
+    background-image: url(/assets/images/background/background2.webp); */
+    /* width: 100%; */
+    height: 437px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin-bottom: 50px;
+}
+
+
+
+
+/********************************************************* TESTIMONIALS SECTION ENDS ************************************************************************/
